@@ -1,0 +1,110 @@
+.container{
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    background: #F5F9FF;
+    padding: 100px;
+}
+.todo-app{
+    width: 1000px;
+    height: 670px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 23, 71, 0.15);
+    max-width: 800px;
+    margin: 24px auto 20px;
+    padding-top: 20px;
+    padding-bottom: 220px;
+    padding-left: 100px;
+    /* border-radius: 20px; */
+    border: blue;
+    align-items: center;
+    /* border: solid blue; */
+    height: 400px; 
+    top: 156px;
+    left: 256px;
+    border-radius: 20px;
+}
+.todo-app h1{
+        color: darkblue;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        color: #11175E;
+       /* font-family: Inter; */
+       font-size: 48px;
+       font-style: normal;
+       font-weight: 600;
+       line-height: normal;
+       letter-spacing: 0.48px;
+}
+.todo-input{
+    flex: 0.8;
+    width: 490px;
+    border: none;
+    outline: none;
+    background: #FFF;
+    color: #B1BACB;
+    font-feature-settings: 'liga' off;
+    /* font-family: Inter; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; /* 17.6px */
+    letter-spacing: 0.16px;
+    padding: 10px;
+    font-weight: 14px;
+}
+.todo-btn{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: none;
+    color: white;
+    background: #2D70FD;
+    border: 1px solid var(--Mavi, #2D70FD);
+    text-align: center;
+    border-radius: 4px;
+    font-feature-settings: 'liga' off;
+    /* font-family: Inter; */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 19.8px */
+    letter-spacing: 0.18px;
+    padding: 16px 35px;
+}
+hr{
+    /* color: gainsboro;
+    width: 515px; */
+    width: 515px;
+    width: 590px;
+    height: 1px;
+    background: #EEE;
+    display: none;
+}
+.clear{
+    text-decoration: none;
+    padding-left:410px;
+    /* padding-left:500px; */
+    padding-bottom: 100px;
+    color: #B1BACB;
+    text-align: right;
+    /* text-align: right; */
+    font-feature-settings: 'liga' off;
+    font-family: Inter;
+    /* font-family: Inter; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 17.6px */
+    letter-spacing: 0.16px;
+    /* display:none; */
+    /* display:none; */
+}
+.item{
+    color: gainsboro;
+    font-size: 17px;
+}

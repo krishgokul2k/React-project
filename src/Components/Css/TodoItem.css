@@ -1,0 +1,29 @@
+.todoitems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todoitems-container{
+    display: flex;
+}
+.todoitems-text{
+    padding-left: 16px;
+    padding-bottom: 14px;
+    color: gainsboro;
+    font-size: 22px;
+}
+/* .todoitems-text::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url('/my-react-project/src/Components/Css/TodoItem.css/Assests/untick..png');
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+} */
+.line-through{
+    text-decoration: line-through  #555;
+}
