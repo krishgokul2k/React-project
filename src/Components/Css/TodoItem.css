@@ -9,8 +9,10 @@
 .todoitems-text{
     padding-left: 16px;
     padding-bottom: 14px;
-    color: gainsboro;
     font-size: 22px;
+}
+.todoitems-text:hover{
+    color: blue;
 }
 /* .todoitems-text::before{
     content: '';
