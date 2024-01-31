@@ -6,6 +6,7 @@ let count = 0;
 const Todo = () => { 
 
     const [todos,setTodos] = useState([]);
+    // const [newTask,setTask] = useState('');
     const inputRef = useRef(null);
 
     // const deleteTodo = (no) =>{
@@ -15,6 +16,16 @@ const Todo = () => {
     //  }
 
     const add = () =>{
+        // if(newTask.trim() !== '')
+        // {
+        //     setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
+        //     inputRef.current.value = "";
+        //     setTask('');
+        //     locaItem("todos_count",count)
+        // }
+        // else{
+        //     alert("you must write something!");
+        // }
         setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
         inputRef.current.value = "";
         localStorage.setItem("todos_count",count)
@@ -30,6 +41,11 @@ const Todo = () => {
             localStorage.setItem("todos",JSON.stringify(todos));
         },100);
     },[todos])
+    
+    // 
+     const clearAllTask = () => {
+        setTodos([]);
+     };
   return (
 
      <>
@@ -43,9 +59,9 @@ const Todo = () => {
                         return <TodoItem key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text}/>
                     })}  
                 </div> 
-                 <hr/>
-                 <span className="item">item selected</span>
-                 <a href=""  className="clear">Clear All</a>  
+                 <hr style={{display:todos.length > 0?'block':'none'}}/>
+                 <span style={{display:todos.length > 0?'block':'none'}} className="item">item</span>
+                 <a href="" onClick={clearAllTask} style={{display:todos.length > 0?'block':'none'}} className="clear">Clear All</a>  
              </div>
          </div>
 
