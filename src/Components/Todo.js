@@ -6,6 +6,7 @@ let count = 0;
 const Todo = () => { 
 
     const [todos,setTodos] = useState([]);
+    const [itemCount,setCount] = useState(0);
     // const [newTask,setTask] = useState('');
     const inputRef = useRef(null);
 
@@ -29,6 +30,7 @@ const Todo = () => {
         setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
         inputRef.current.value = "";
         localStorage.setItem("todos_count",count)
+        setCount(itemCount+1);
     }
     useEffect(()=>{
         setTodos(JSON.parse(localStorage.getItem("todos")));
@@ -60,7 +62,7 @@ const Todo = () => {
                     })}  
                 </div> 
                  <hr style={{display:todos.length > 0?'block':'none'}}/>
-                 <span style={{display:todos.length > 0?'block':'none'}} className="item">item</span>
+                 <span style={{display:todos.length > 0?'block':'none'}} className="item">{itemCount} item  selected</span>
                  <a href="" onClick={clearAllTask} style={{display:todos.length > 0?'block':'none'}} className="clear">Clear All</a>  
              </div>
          </div>
