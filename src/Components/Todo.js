@@ -55,7 +55,7 @@ const Todo = () => {
              <div className='todo-app'>
                  <h1>Daily To Do List</h1>
                  <input ref={inputRef} type="text" placeholder="Add new List Item" className='todo-input'/>
-                 <button onClick={()=>{add()}} className='todo-btn'>Add</button>
+                 <button onClick={add} className='todo-btn'>Add</button>
                  <div className='todo-list'>
                     {todos.map((item,index)=>{
                         return <TodoItem key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text}/>
@@ -63,7 +63,7 @@ const Todo = () => {
                 </div> 
                  <hr style={{display:todos.length > 0?'block':'none'}}/>
                  <span style={{display:todos.length > 0?'block':'none'}} className="item">{itemCount} item  selected</span>
-                 <a href="" onClick={clearAllTask} style={{display:todos.length > 0?'block':'none'}} className="clear">Clear All</a>  
+                 <span onClick={clearAllTask} style={{display:todos.length > 0?'block':'none'}} className="clear">Clear All</span>  
              </div>
          </div>
 
