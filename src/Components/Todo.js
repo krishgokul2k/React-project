@@ -4,33 +4,29 @@ import TodoItem from './TodoItem';
 
 let count = 0;
 const Todo = () => { 
-
+    const [todoInput,setTodoInput] = useState('');
     const [todos,setTodos] = useState([]);
     const [itemCount,setCount] = useState(0);
     // const [newTask,setTask] = useState('');
-    const inputRef = useRef(null);
+    const inputRef = (e)=>{
+        setTodoInput(e.target.value);
+    };
 
-    // const deleteTodo = (no) =>{
-    //     let data = JSON.parse(localStorage.getItem("todos"));
-    //     data = data.filter((todo)=>todo.no!==no);
-    //     setTodos(data);
-    //  }
 
     const add = () =>{
-        // if(newTask.trim() !== '')
-        // {
-        //     setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
-        //     inputRef.current.value = "";
-        //     setTask('');
-        //     locaItem("todos_count",count)
-        // }
-        // else{
-        //     alert("you must write something!");
-        // }
-        setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
-        inputRef.current.value = "";
-        localStorage.setItem("todos_count",count)
-        setCount(itemCount+1);
+        // setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}])
+        // inputRef.current.value = "";
+        // localStorage.setItem("todos_count",count)
+        // setCount(itemCount+1);
+        if(!todoInput){
+            alert('You must write somethig');
+        }
+        else {
+           setTodos([...todos,{no:count++,text:todoInput,display:""}])
+           localStorage.setItem("todos_count",count)
+           setTodoInput('');
+           setCount(itemCount+1);
+        }   
     }
     useEffect(()=>{
         setTodos(JSON.parse(localStorage.getItem("todos")));
@@ -47,6 +43,7 @@ const Todo = () => {
     // 
      const clearAllTask = () => {
         setTodos([]);
+        setCount(0);
      };
   return (
 
@@ -54,14 +51,14 @@ const Todo = () => {
          <div className='container'>
              <div className='todo-app'>
                  <h1>Daily To Do List</h1>
-                 <input ref={inputRef} type="text" placeholder="Add new List Item" className='todo-input'/>
+                 <input onChange={inputRef} value={todoInput} type="text" placeholder="Add new List Item" className='todo-input'/>
                  <button onClick={add} className='todo-btn'>Add</button>
                  <div className='todo-list'>
                     {todos.map((item,index)=>{
                         return <TodoItem key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text}/>
                     })}  
                 </div> 
-                 <hr style={{display:todos.length > 0?'block':'none'}}/>
+                 <hr style={{display:todos.length > 0?'block':'none'}} />
                  <span style={{display:todos.length > 0?'block':'none'}} className="item">{itemCount} item  selected</span>
                  <span onClick={clearAllTask} style={{display:todos.length > 0?'block':'none'}} className="clear">Clear All</span>  
              </div>
